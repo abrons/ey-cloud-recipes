@@ -44,9 +44,9 @@ execute "add-couchdb-to-default-run-level" do
   not_if "rc-status | grep couchdb"
 end
 
-execute "ensure-couchdb-is-running" do
-  command %Q{
-    /etc/init.d/couchdb restart
-  }
-  not_if "/etc/init.d/couchdb status | grep 'status:  started'"
-end
+# execute "ensure-couchdb-is-running" do
+#   command %Q{
+#     /etc/init.d/couchdb restart
+#   }
+#   not_if "/etc/init.d/couchdb status | grep 'status:  started'"
+# end
