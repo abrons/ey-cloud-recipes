@@ -1,0 +1,21 @@
+[couchdb]
+database_dir = <%= @basedir %>
+util_driver_dir = <%= @driver_dir %>
+max_document_size = <%= @max_document_size %>
+
+[log]
+file = <%= @logfile %>
+level = <%= @loglevel %>
+
+[httpd]
+port = <%= @port %>
+bind_address = <%= @bind_address %>
+
+; To create an admin account uncomment the '[admins]' section below and add a
+; line in the format 'username = password'. When you next start CouchDB, it
+; will change the password to a hash (so that your passwords don't linger 
+; around in plain-text files). You can add more admin accounts with more 
+; 'username = password' lines. Don't forget to restart CouchDB after 
+; changing this.
+;[admins]
+;admin = mysecretpassword

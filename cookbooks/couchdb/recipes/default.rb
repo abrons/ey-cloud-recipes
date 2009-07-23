@@ -14,19 +14,19 @@ directory "/db/couchdb/log" do
   recursive true
 end
 
-template "/etc/couchdb/couch.ini" do
+template "/etc/couchdb/local.ini" do
   owner 'root'
   group 'root'
   mode 0644
-  source "couch.ini.erb"
+  source "local.ini.erb"
   variables({
     :basedir => '/db/couchdb',
     :logfile => '/db/couchdb/log/couch.log',
     :bind_address => '127.0.0.1', # '0.0.0.0' if you want couch available to the outside world
     :port  => '5984',# change if you want to listen on another port
-    :doc_root => '/usr/share/couchdb/www', # change if you have a cutom couch www root
     :driver_dir => '/usr/lib/couchdb/erlang/lib/couch-0.9.0/priv/lib',
-    :loglevel => 'info'
+    :loglevel => 'info',
+    :max_document_size => '4194304' # 4MB in bytes
   })
 end
 
